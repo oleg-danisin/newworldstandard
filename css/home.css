@@ -1,0 +1,491 @@
+/* ============================================================
+   NWS HOME PAGE STYLES
+   css/home.css
+   Depends on: tokens.css, base.css
+   ============================================================ */
+
+/* ── MASTHEAD ── */
+.masthead {
+  padding-top: 50px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule-mid);
+}
+.masthead-inner { padding: 50px 48px 42px; }
+.masthead-eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 22px;
+}
+.masthead-name {
+  font-family: var(--serif);
+  font-size: clamp(42px, 7.5vw, 96px);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 0.93;
+  color: var(--ink);
+  display: block;
+}
+.masthead-rule {
+  width: 36px; height: 1px;
+  background: var(--emerald-mid);
+  margin: 24px auto 22px;
+}
+.masthead-tagline {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* ── SECTION NAV ── */
+.section-nav {
+  border-bottom: 1px solid var(--rule-mid);
+  padding: 0 48px;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.section-nav a {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding: 14px 18px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.section-nav a:first-child { padding-left: 0; }
+.section-nav a:hover { color: var(--ink-mid); }
+.section-nav a.active { color: var(--ink-mid); border-bottom-color: var(--wasabi); }
+.section-nav a.disabled {
+  pointer-events: none;
+  opacity: 0.28;
+  cursor: default;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SLIDER
+   Layout: full-width container, slides sit side by side.
+   The fix: track needs width:100% so translateX(-100%)
+   equals exactly one viewport width, not more.
+   Each slide needs flex-shrink:0 so it never compresses.
+   ══════════════════════════════════════════════════════════ */
+.slider-wrap {
+  position: relative;
+  overflow: hidden;          /* clips slides not in view */
+  border-bottom: 1px solid var(--rule-mid);
+}
+.slider-track {
+  display: flex;
+  width: 100%;               /* CRITICAL — anchors the track */
+  transition: transform 0.72s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+/* ── SINGLE SLIDE ── */
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 76vh;
+  width: 100%;
+}
+
+/* ── SLIDE IMAGE PANEL (left) ── */
+.slide-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+}
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+/* Mission slide left panel */
+.slide-mission-bg {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  background: var(--emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+.slide-mission-bg-text {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: rgba(232, 223, 208, 0.1);
+  text-align: center;
+  line-height: 0.95;
+  user-select: none;
+}
+
+/* ── SLIDE TEXT PANEL (right) — light warm bg, dark text ── */
+.slide-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 68px 96px 60px;
+  background: #F0EBE0;
+  position: relative;
+}
+
+/* Mission slide keeps dark */
+.slide-mission .slide-text {
+  background: var(--surface);
+}
+
+.slider-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.75s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+/* Slide label row */
+.slide-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.slide-label-tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--emerald-mid);
+}
+.slide-mission .slide-label-tag { color: var(--wasabi); }
+.slide-label-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: #C8B898;
+  flex-shrink: 0;
+}
+.slide-label-cat {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7A7060;
+}
+
+/* Slide headline */
+.slide-headline {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 42px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #1A1612;
+  margin-bottom: 20px;
+}
+.slide-mission .slide-headline { color: var(--ink); }
+
+/* Slide deck */
+.slide-deck {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.76;
+  color: #4A443C;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+.slide-mission .slide-deck { color: var(--ink-mid); }
+
+/* Slide byline */
+.slide-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.slide-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  background: #D8D0C0;
+}
+.slide-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+}
+.slide-byline-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2A2420;
+  display: block;
+}
+.slide-byline-meta {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #6A6058;
+  display: block;
+  margin-top: 2px;
+}
+.slide-mission .slide-byline-name { color: var(--ink-mid); }
+.slide-mission .slide-byline-meta { color: var(--ink-light); }
+
+/* Read button */
+.slide-read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2A2420;
+  border-bottom: 1.5px solid #C8B898;
+  padding-bottom: 7px;
+  width: fit-content;
+  transition: color 0.2s, border-color 0.2s, gap 0.2s;
+}
+.slide-read-btn svg { transition: transform 0.2s; }
+.slide-read-btn:hover { color: #101211; border-color: #8B6E3A; gap: 18px; }
+.slide-read-btn:hover svg { transform: translateX(4px); }
+.slide-mission .slide-read-btn { color: var(--ink-mid); border-color: var(--rule-vis); }
+.slide-mission .slide-read-btn:hover { color: var(--ink); border-color: var(--wasabi); }
+
+/* Mission quote */
+.slide-mission-quote {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 32px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.36;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  padding-left: 20px;
+  border-left: 2px solid var(--emerald-mid);
+}
+
+/* ── SLIDE COUNTER ── */
+.slide-counter {
+  position: absolute;
+  top: 28px; right: 40px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #8A8078;
+  z-index: 10;
+  pointer-events: none;
+  font-family: var(--sans);
+}
+.slide-counter strong { color: #3A3028; font-weight: 600; }
+.slide-counter .sep { margin: 0 5px; opacity: 0.3; }
+
+/* ── SLIDER CONTROLS ── */
+.slider-controls {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 10;
+}
+.slider-arrow {
+  width: 42px; height: 42px;
+  border: 1px solid rgba(26,22,18,0.2);
+  background: rgba(240,235,224,0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: #4A443C;
+  flex-shrink: 0;
+}
+.slider-arrow:hover { background: rgba(240,235,224,1); border-color: rgba(26,22,18,0.4); }
+.slider-arrow:disabled { opacity: 0.2; pointer-events: none; }
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.slider-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(26,22,18,0.18);
+  border: 1px solid rgba(26,22,18,0.18);
+  transition: all 0.25s;
+  padding: 0;
+}
+.slider-dot.active {
+  background: var(--emerald-mid);
+  border-color: var(--emerald-mid);
+  transform: scale(1.25);
+}
+.slider-dot:hover:not(.active) { background: rgba(26,22,18,0.35); }
+
+/* ── COMING SOON BAND ── */
+.coming-soon-band {
+  border-bottom: 1px solid var(--rule-mid);
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.coming-soon-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--emerald-mid);
+  flex-shrink: 0;
+}
+.coming-soon-text {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+.coming-soon-text strong { color: var(--wasabi); font-weight: 600; }
+
+/* ── MISSION BAND ── */
+.mission-band {
+  border-bottom: 1px solid var(--rule-mid);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: center;
+}
+.mission-divider {
+  background: var(--rule-vis);
+  height: 72px;
+  align-self: center;
+}
+.mission-left { padding-right: 60px; }
+.mission-right { padding-left: 60px; }
+.mission-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wasabi);
+  margin-bottom: 16px;
+}
+.mission-statement {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.8vw, 26px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.mission-body {
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.78;
+  color: var(--ink-mid);
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+.mission-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  border-bottom: 1px solid var(--rule-vis);
+  padding-bottom: 6px;
+  transition: color 0.2s, border-color 0.2s, gap 0.2s;
+}
+.mission-link:hover { color: var(--ink-mid); border-color: var(--wasabi); gap: 16px; }
+.mission-link svg { transition: transform 0.2s; }
+.mission-link:hover svg { transform: translateX(3px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .masthead-inner,
+  .section-nav,
+  .mission-band,
+  .coming-soon-band { padding-left: 32px; padding-right: 32px; }
+  .slide-text { padding: 48px 44px 88px 44px; }
+  .mission-left { padding-right: 40px; }
+  .mission-right { padding-left: 40px; }
+}
+
+@media (max-width: 768px) {
+  .masthead { padding-top: 48px; }
+  .masthead-name {display: none; font-size: 20px; }
+  .masthead-rule {display: none; }
+  .masthead-inner { padding: 32px 20px 28px; }
+  .masthead-eyebrow { display: none; }
+  .section-nav { padding: 0 20px; }
+  .section-nav a { padding: 12px 14px; font-size: 10px; }
+
+  /* Stack slide vertically on mobile */
+  .slide { grid-template-columns: 1fr; min-height: auto; display: flex; flex-direction: column-reverse;}
+  .slide-image { min-height: 260px; max-height: 220px; overflow: hidden; position: relative; }
+  .slide-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, #F0EBE0, transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+  .slide-image img { min-height: 260px; width: 100%; object-fit: cover; object-position: center 25%; height: 220px; object-fit: cover; }
+  .slide-mission-bg { min-height: 220px; }
+  .slide-text { padding: 28px 24px 20px; }
+  .slide-deck { max-width: 100%; }
+
+  /* On small screens, keep controls in normal flow (prevents overlap and clipping). */
+  .slider-controls {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    justify-content: center;
+    margin: 18px 0 28px;
+    gap: 12px;
+  }
+  .slider-arrow { width: 36px; height: 36px; }
+  .slide-counter { top: 14px; right: 18px; color: var(--ink-light); }
+  .slide-counter strong { color: var(--ink-mid); }
+
+  .mission-band { grid-template-columns: 1fr; padding: 36px 20px; gap: 28px; }
+  .mission-divider { display: none; }
+  .mission-left { padding-right: 0; }
+  .mission-right { padding-left: 0; }
+  .coming-soon-band { padding: 18px 20px; }
+}
+
+@media (max-width: 480px) {
+  .masthead-name { font-size: 36px; }
+  .slide-headline { font-size: 22px; }
+  .slide-deck { font-size: 14px; }
+  .slide-mission-quote { font-size: 20px; }
+  .slide-text { padding-bottom: 120px; }
+  .slider-arrow { width: 34px; height: 34px; }
+}

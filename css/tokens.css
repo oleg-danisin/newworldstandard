@@ -1,0 +1,60 @@
+/* ============================================================
+   NWS DESIGN TOKENS
+   Single source of truth for all colours, typography, spacing.
+   Import this first in every page.
+   When adding Tailwind: map these to tailwind.config.js theme.extend
+   ============================================================ */
+
+:root {
+  /* Colour palette */
+  --black:         #101211;
+  --surface:       #161A17;
+  --surface-2:     #1C2420;
+  --content-bg:    #12160F;
+  --emerald:       #284139;
+  --emerald-mid:   #3D6352;
+  --wasabi:        #809076;
+  --wasabi-light:  #A0B095;
+  --ink:           #E8DFD0;
+  --ink-mid:       #B5AA98;
+  --ink-light:     #6E6860;
+  --ink-faint:     #2A2F2C;
+  --rule:          #1C2420;
+  --rule-mid:      #263030;
+  --rule-vis:      #2E3A36;
+  --red-like:      #c0392b;
+  --red-like-bg:   rgba(192,57,43,0.08);
+
+  /* Typography */
+  --serif:  'Playfair Display', Georgia, serif;
+  --sans:   'DM Sans', system-ui, sans-serif;
+
+  /* Layout */
+  --reading-width: 720px;
+  --page-pad:      48px;
+  --page-pad-sm:   20px;
+}
+
+/* ============================================================
+   TAILWIND INTEGRATION NOTE
+   When you add Tailwind CDN or CLI, extend tailwind.config.js:
+
+   theme: {
+     extend: {
+       colors: {
+         'nws-black':   '#101211',
+         'nws-surface': '#161A17',
+         'nws-emerald': '#3D6352',
+         'nws-wasabi':  '#809076',
+         'nws-ink':     '#E8DFD0',
+       },
+       fontFamily: {
+         serif: ['Playfair Display', 'Georgia', 'serif'],
+         sans:  ['DM Sans', 'system-ui', 'sans-serif'],
+       },
+       maxWidth: {
+         reading: '720px',
+       }
+     }
+   }
+   ============================================================ */

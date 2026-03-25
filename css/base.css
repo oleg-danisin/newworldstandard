@@ -1,0 +1,191 @@
+/* ============================================================
+   NWS BASE STYLES
+   Global reset + shared element styles.
+   Import after tokens.css, before page-specific CSS.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+button { border: none; cursor: pointer; background: transparent; font-family: var(--sans); }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── TOPBAR ── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--page-pad);
+  background: rgba(16,18,17,0.96);
+  border-bottom: 1px solid var(--rule-mid);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.topbar-date {
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+.topbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.topbar-logo {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.topbar-logo:hover { opacity: 0.75; }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.topbar-right a {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding: 6px 10px;
+  transition: color 0.2s;
+}
+.topbar-right a:hover { color: var(--ink-mid); }
+.topbar-sep {
+  width: 1px; height: 14px;
+  background: var(--rule-mid);
+  margin: 0 6px;
+}
+.topbar-back {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  transition: color 0.2s;
+  margin-left: 8px;
+}
+.topbar-back:hover { color: var(--ink-mid); }
+.topbar-search-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  border: 1px solid var(--rule-vis);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+.topbar-search-btn:hover { border-color: var(--wasabi); color: var(--ink-mid); }
+
+/* ── SITE FOOTER ── */
+.site-footer {
+  padding: 52px var(--page-pad) 44px;
+  border-top: 1px solid var(--rule-mid);
+}
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--rule-mid);
+  margin-bottom: 28px;
+  gap: 40px;
+}
+.footer-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 8px;
+}
+.footer-tagline {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+.footer-mission-text {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.72;
+  color: var(--ink-light);
+  max-width: 380px;
+  text-align: right;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.footer-links a {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding: 4px 20px 4px 0;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--ink-mid); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+}
+.footer-copy {
+  font-size: 11px;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  :root { --page-pad: var(--page-pad-sm); }
+
+  .topbar { padding: 0 20px; height: 48px; }
+  .topbar-date { display: none; }
+  .topbar-center { position: static; transform: none; }
+  .topbar-right a:not(.topbar-back) { display: none; }
+  .topbar-sep { display: none; }
+
+  .site-footer { padding: 36px 20px 32px; }
+  .footer-top { flex-direction: column; gap: 16px; }
+  .footer-mission-text { text-align: left; max-width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
