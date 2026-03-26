@@ -39,7 +39,12 @@ exports.handler = async function (event) {
 
   try {
     // Netlify Blobs store — scoped to this site
-    const store = getStore({ name: 'likes', consistency: 'strong' });
+    const store = getStore({
+      name: 'likes',
+      consistency: 'strong',
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_AUTH_TOKEN,
+    });
 
     // ── GET — fetch current count ──────────────────────────
     if (event.httpMethod === 'GET') {
@@ -93,6 +98,8 @@ exports.handler = async function (event) {
       error: 'Internal error',
       message: err?.message || 'Unknown error',
       code: err?.code || null,
+      hasSiteID: Boolean(process.env.NETLIFY_SITE_ID),
+      hasAuthToken: Boolean(process.env.NETLIFY_AUTH_TOKEN),
       count: 0,
     });
   }
