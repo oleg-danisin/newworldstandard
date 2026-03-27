@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: oleg-danisin/newworldstandard
+  name: git-gateway
   branch: main
 
 media_folder: "images/articles"
