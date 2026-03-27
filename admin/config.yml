@@ -4,9 +4,10 @@ backend:
   branch: main
   base_url: https://auth.decapbridge.com
   auth_endpoint: auth
-  site_url: https://newworldstandard.com
-  display_url: https://newworldstandard.com
-  logo_url: /favicon.ico
+
+site_url: https://newworldstandard.com
+display_url: https://newworldstandard.com
+logo_url: /favicon.ico
 
 # Where uploaded images get saved
 media_folder: "images/articles"
