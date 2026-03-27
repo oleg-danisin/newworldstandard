@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: oleg-danisin/newworldstandard
   branch: main
 
 # Where uploaded images get saved
