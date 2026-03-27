@@ -39,12 +39,13 @@ public_folder: "/images/articles"
 collections:
   - name: "articles"
     label: "Articles"
-    # Saves files directly in /articles/ as article-slug.md
+    # Saves each article in its own folder under /articles/
     folder: "articles"
     create: true
-    # File named after the title slug
+    # Folder name based on the entry slug
     slug: "{{slug}}"
     path: "{{slug}}/index"
+    # Creates files like /articles/<slug>/index.md
     # Frontmatter format
     format: "frontmatter"
     fields:
