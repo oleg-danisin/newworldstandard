@@ -5,7 +5,7 @@
 
 [build]
   publish = "."
-  command = "npm install && node scripts/build-articles.js"
+  command = ""
   functions = "netlify/functions"
 
 # ── HEADERS ──────────────────────────────────────────────────
