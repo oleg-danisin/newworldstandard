@@ -44,6 +44,7 @@ collections:
     create: true
     # File named after the title slug
     slug: "{{slug}}"
+    path: "{{slug}}/index"
     # Frontmatter format
     format: "frontmatter"
     fields:
