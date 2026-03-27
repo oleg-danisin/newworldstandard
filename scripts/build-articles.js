@@ -57,7 +57,7 @@ const AUTHORS = {
     slug: 'jacob-aldaco',
     title: 'Contributor',
     bio: 'Jacob Aldaco is a contributor to New World Standard, writing on technology, governance, and global security. He spent 15 years in Shanghai before relocating to Europe.',
-    avatar: '<svg width="20" height="20" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" fill="#6E6860"/><path d="M2 14c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#6E6860" stroke-width="1.4"/></svg>'
+    avatar: '<img src="/images/authors/jacob-aldaco.jpg" alt="Jacob Aldaco" width="46" height="46">'
   }
 };
 
