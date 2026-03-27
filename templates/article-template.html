@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} — New World Standard</title>
+  <meta name="description" content="{{deck}}">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="{{author}}">
+  <link rel="canonical" href="https://www.newworldstandard.com/articles/{{slug}}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="New World Standard">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{deck}}">
+  <meta property="og:url" content="https://www.newworldstandard.com/articles/{{slug}}">
+  <meta property="og:image" content="{{coverImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="{{dateISO}}">
+  <meta property="article:author" content="https://www.newworldstandard.com/writers/{{authorSlug}}">
+  <meta property="article:section" content="{{category}}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{deck}}">
+  <meta name="twitter:image" content="{{coverImage}}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "{{title}}",
+    "description": "{{deck}}",
+    "image": "{{coverImage}}",
+    "author": {
+      "@type": "Person",
+      "name": "{{author}}",
+      "url": "https://www.newworldstandard.com/writers/{{authorSlug}}"
+    },
+    "publisher": {
+      "@type": "NewsMediaOrganization",
+      "name": "New World Standard",
+      "url": "https://www.newworldstandard.com"
+    },
+    "datePublished": "{{dateISO}}",
+    "dateModified": "{{dateISO}}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.newworldstandard.com/articles/{{slug}}"
+    },
+    "articleSection": "{{category}}",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.newworldstandard.com"},
+      {"@type": "ListItem", "position": 2, "name": "{{category}}", "item": "https://www.newworldstandard.com/{{categorySlug}}"},
+      {"@type": "ListItem", "position": 3, "name": "{{title}}", "item": "https://www.newworldstandard.com/articles/{{slug}}"}
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23101211'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='900' font-size='18' fill='%23E8DFD0'>N</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/article.css">
+</head>
+<body>
+
+<a href="#article-content" style="position:absolute;left:-9999px;top:0;z-index:999;padding:8px 16px;background:var(--wasabi);color:var(--black);font-family:var(--sans);font-size:13px;font-weight:600;">Skip to article</a>
+
+<header role="banner">
+  <div class="topbar">
+    <span class="topbar-date" id="topbarDate"></span>
+    <div class="topbar-center">
+      <a href="/" class="topbar-logo" aria-label="New World Standard — Homepage">New World Standard</a>
+    </div>
+    <div class="topbar-right">
+      <a href="/">Home</a>
+      <div class="topbar-sep" aria-hidden="true"></div>
+      <a href="/" class="topbar-back">
+        <svg width="12" height="9" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M13 5H1M5 1L1 5l4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <main id="article-content" role="main">
+    <article itemscope itemtype="https://schema.org/NewsArticle">
+
+      <header class="article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="current">{{category}}</span>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="current">{{title}}</span>
+        </nav>
+        <span class="article-category" itemprop="articleSection">{{category}}</span>
+        <h1 class="article-headline" itemprop="headline">{{title}}</h1>
+        <p class="article-deck" itemprop="description">{{deck}}</p>
+        <div class="article-byline-block">
+          <div class="article-avatar">
+            {{authorAvatar}}
+          </div>
+          <div class="article-byline-info">
+            <span class="article-author-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">{{author}}</span>
+            </span>
+            <div class="article-byline-meta">
+              <span>{{authorTitle}}</span>
+              <span class="byline-dot" aria-hidden="true"></span>
+              <time datetime="{{dateISO}}" itemprop="datePublished">{{dateFormatted}}</time>
+              <span class="byline-dot" aria-hidden="true"></span>
+              <span>{{readTime}} min read</span>
+            </div>
+          </div>
+          <div class="byline-actions">
+            <button class="like-btn" id="likeBtn" aria-label="Like this article">
+              <svg class="like-icon" width="13" height="13" viewBox="0 0 16 15" fill="none" aria-hidden="true">
+                <path id="likeHeart" d="M8 13.5S1 9 1 4.5A3.5 3.5 0 0 1 7.5 2.5L8 3l.5-.5A3.5 3.5 0 0 1 15 4.5C15 9 8 13.5 8 13.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              </svg>
+              <span id="likeCountSmall">0</span>
+            </button>
+            <div style="position:relative">
+              <button class="share-btn" id="shareToggle" aria-label="Share" aria-expanded="false" aria-haspopup="true">
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="11" cy="2.5" r="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="11.5" r="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="2.5" cy="7" r="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 7.5l5.5 3.5M9.5 3L4 6.5" stroke="currentColor" stroke-width="1.2"/></svg>
+                Share
+              </button>
+              <div class="share-dropdown" id="shareDropdown" role="menu">
+                <button class="share-option" id="shareInstagram" role="menuitem">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                  Instagram
+                </button>
+                <button class="share-option" id="shareWechat" role="menuitem">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 11c-3.3 0-6-2.2-6-5s2.7-5 6-5 6 2.2 6 5c0 .8-.2 1.6-.6 2.2"/><path d="M15 13c-3.3 0-6 2.2-6 5s2.7 5 6 5 6-2.2 6-5-2.7-5-6-5z"/></svg>
+                  WeChat Moments
+                </button>
+                <button class="share-option" id="copyLink" role="menuitem">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  Copy Link
+                </button>
+                <div class="share-feedback" id="shareFeedback"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {{#if coverImage}}
+      <div class="article-hero-image">
+        <figure>
+          <img src="{{coverImage}}" alt="{{title}}" width="960" height="480" itemprop="image">
+        </figure>
+      </div>
+      {{/if}}
+
+      <div class="article-body-wrap">
+        <div class="article-body" itemprop="articleBody">
+          {{body}}
+        </div>
+      </div>
+
+      <footer class="article-footer">
+        <div class="like-section" role="region" aria-label="Article reactions">
+          <button class="like-btn-large" id="likeBtnLarge" aria-label="Like this article">
+            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true">
+              <path id="likeHeartLarge" d="M8 13.5S1 9 1 4.5A3.5 3.5 0 0 1 7.5 2.5L8 3l.5-.5A3.5 3.5 0 0 1 15 4.5C15 9 8 13.5 8 13.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <span id="likeCountLarge">0</span> Likes
+          </button>
+          <span class="liked-msg" id="likedMsg" aria-live="polite"></span>
+        </div>
+
+        <div class="article-tags" aria-label="Article topics">
+          {{tags}}
+        </div>
+
+        <div class="author-card" itemscope itemtype="https://schema.org/Person">
+          <div class="author-card-avatar">
+            {{authorAvatar}}
+          </div>
+          <div>
+            <span class="author-card-label">Written by</span>
+            <span class="author-card-name" itemprop="name">{{author}}</span>
+            <p class="author-card-bio" itemprop="description">{{authorBio}}</p>
+          </div>
+        </div>
+
+        <a href="/" class="back-home">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M13 5H1M5 1L1 5l4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back to New World Standard
+        </a>
+      </footer>
+
+    </article>
+  </main>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-top">
+    <div>
+      <a href="/" class="footer-name">New World Standard</a>
+      <p class="footer-tagline">Honest by design</p>
+    </div>
+    <p class="footer-mission-text">Independent journalism committed to truth, depth, and human dignity.</p>
+  </div>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="/">Home</a>
+    <a href="mailto:editorial@newworldstandard.com">Contact</a>
+  </nav>
+  <div class="footer-bottom">
+    <small class="footer-copy">&copy; <span id="year"></span> New World Standard. All rights reserved.</small>
+    <small class="footer-copy">newworldstandard.com</small>
+  </div>
+</footer>
+
+<script src="/js/utils.js"></script>
+<script src="/js/likes.js"></script>
+<script src="/js/share.js"></script>
+<script>
+  nwsInitShare('{{title}} — New World Standard');
+  nwsInitLikes('{{slug}}');
+</script>
+
+</body>
+</html>

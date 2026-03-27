@@ -4,8 +4,8 @@
 # ============================================================
 
 [build]
-  # No build step needed for plain HTML
   publish = "."
+  command = "npm install && node scripts/build-articles.js"
   functions = "netlify/functions"
 
 # ── HEADERS ──────────────────────────────────────────────────
@@ -58,12 +58,6 @@
   from = "/*"
   to   = "/404.html"
   status = 404
-
-# ___301 means permanent redirect — Google transfers all SEO value from the old URL to the new one.
-  [[redirects]]
-  from = "/article"
-  to   = "/articles/the-clause-the-pentagon-refused"
-  status = 301
 
 # ── FUNCTIONS ────────────────────────────────────────────────
 [functions]

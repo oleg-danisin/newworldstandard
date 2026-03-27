@@ -2,20 +2,73 @@ backend:
   name: git-gateway
   branch: main
 
+# Where uploaded images get saved
 media_folder: "images/articles"
 public_folder: "/images/articles"
 
 collections:
   - name: "articles"
     label: "Articles"
+    # Saves files directly in /articles/ as article-slug.md
     folder: "articles"
     create: true
-    slug: "{{slug}}/index"
+    # File named after the title slug
+    slug: "{{slug}}"
+    # Frontmatter format
+    format: "frontmatter"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Category", name: "category", widget: "string" }
-      - { label: "Deck", name: "deck", widget: "text" }
-      - { label: "Cover Image", name: "cover", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "The article headline. Keep it under 60 characters for SEO."
+
+      - label: "Deck"
+        name: "deck"
+        widget: "text"
+        hint: "One or two sentences summarising the article. This appears under the headline and in Google search results."
+
+      - label: "Author"
+        name: "author"
+        widget: "select"
+        options:
+          - "Dominic Prescott Welty"
+          - "Jacob Aldaco"
+        default: "Dominic Prescott Welty"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        default: ""
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Ideas"
+          - "Opinion"
+          - "World"
+          - "Politics"
+          - "Society"
+          - "Science & Health"
+          - "Technology"
+          - "Long Reads"
+        default: "Ideas"
+
+      - label: "Cover Image"
+        name: "cover"
+        widget: "image"
+        required: false
+        hint: "Main article image. Recommended size: 1200x630px. Compress before uploading."
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Comma-separated tags e.g. AI, Pentagon, National Security"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Write your article here. Use ## for section headings, > for pull quotes."
